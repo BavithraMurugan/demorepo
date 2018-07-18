@@ -36,12 +36,12 @@ pipeline {
 			    sh 'mvn package'
 	            }
 	        }
-		   //  stage('sonar') { 
-	            //steps {
-	              // bat 'mvn sonar:sonar -Dmaven.test.skip=true -Dparams.version=%params.version%'
+		     stage('sonar') { 
+	            	steps {
+	               	 bat 'mvn sonar:sonar -Dmaven.test.skip=true -Dsonar.host.url=%sonar.host.url%'
 			//   sh 'mvn sonar:sonar'
-	            //}
-	        //}
+	            }
+	        }
 		    
 		    
 		  //   stage('Deploy') { 
