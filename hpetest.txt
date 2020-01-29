@@ -2,6 +2,6 @@ version: '3'
 services:
   web:
     build: .
-    ports:
+    services:
       - "88888888000:5000"
   redis:
