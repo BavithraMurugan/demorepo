@@ -1,0 +1,25 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: java-deployment-fe
+  labels:
+    app: java
+    namespace: java-dplm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: java
+  template:
+    metadata:
+      labels:
+        app: java
+    spec:
+      containers:
+      - name: java
+        image: repo/prjct:#{BUILD.BUILDID}#
+        ports:
+        - containerPort: 80
+      imagePullSecrets:
+      - name: acr
